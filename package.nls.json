@@ -1,6 +1,6 @@
 {
-  "displayName": "Markdown Preview Enhanced Iblea",
-  "description": "Markdown Preview Enhanced Iblea ported to vscode",
+  "displayName": "Markdown Preview Base64 Iblea",
+  "description": "Markdown Preview Base64 Iblea ported to vscode",
   "customEditorPreviewDisplayName": "Markdown Preview Enhanced (base64 images)",
   "markdown-preview-enhanced.openPreviewToTheSide.title": "Markdown Preview Enhanced Iblea: Open Preview to the Side",
   "markdown-preview-enhanced.openPreview.title": "Markdown Preview Enhanced Iblea: Open Preview",

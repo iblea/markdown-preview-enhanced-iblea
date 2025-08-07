@@ -85,43 +85,43 @@ export async function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.customizeCss',
+      'markdown-preview-enhanced-iblea.customizeCss',
       customizeCSS,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.openConfigScript',
+      'markdown-preview-enhanced-iblea.openConfigScript',
       openConfigScript,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.extendParser',
+      'markdown-preview-enhanced-iblea.extendParser',
       extendParser,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.customizePreviewHtmlHead',
+      'markdown-preview-enhanced-iblea.customizePreviewHtmlHead',
       customizePreviewHtmlHead,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.showUploadedImages',
+      'markdown-preview-enhanced-iblea.showUploadedImages',
       showUploadedImages,
     ),
   );
 
-  // context.subscriptions.push(vscode.commands.registerCommand('_crossnote.cacheSVG', cacheSVG))
+  // context.subscriptions.push(vscode.commands.registerCommand('_crossnote-iblea.cacheSVG', cacheSVG))
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.showUploadedImageHistory',
+      '_crossnote-iblea.showUploadedImageHistory',
       showUploadedImages,
     ),
   );

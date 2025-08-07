@@ -52,15 +52,15 @@ function getGlobalConfigPath(): string {
   }
 
   if (process.platform === 'win32') {
-    return path.join(os.homedir(), './.crossnote');
+    return path.join(os.homedir(), './.crossnote-iblea');
   } else {
     if (
       typeof process.env.XDG_CONFIG_HOME === 'string' &&
       process.env.XDG_CONFIG_HOME !== ''
     ) {
-      return path.resolve(process.env.XDG_CONFIG_HOME, './crossnote');
+      return path.resolve(process.env.XDG_CONFIG_HOME, './crossnote-iblea');
     } else {
-      return path.resolve(os.homedir(), './.local/state/crossnote');
+      return path.resolve(os.homedir(), './.local/state/crossnote-iblea');
     }
   }
 }

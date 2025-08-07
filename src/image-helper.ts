@@ -16,7 +16,7 @@ export function pasteImageFile(sourceUri: string, imageFilePath: string) {
 
   const imageFolderPath =
     vscode.workspace
-      .getConfiguration('markdown-preview-enhanced')
+      .getConfiguration('markdown-preview-enhanced-iblea')
       .get<string>('imageFolderPath') ?? '';
   let imageFileName = path.basename(imageFilePath);
   const projectDirectoryPath = getWorkspaceFolderUri(uri).fsPath;

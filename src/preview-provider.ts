@@ -40,7 +40,15 @@ if (isVSCodeWebExtension()) {
  * Check if a file path is an image file
  */
 function isImageFile(filePath: string): boolean {
-  const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.svg'];
+  const imageExtensions = [
+    '.png',
+    '.jpg',
+    '.jpeg',
+    '.gif',
+    '.bmp',
+    '.webp',
+    '.svg',
+  ];
   const ext = path.extname(filePath).toLowerCase();
   return imageExtensions.includes(ext);
 }
@@ -103,19 +111,26 @@ async function convertImageToBase64(filePath: string): Promise<string | null> {
 /**
  * Preprocess markdown text to convert image references to base64
  */
-async function preprocessMarkdownImages(text: string, sourceUri: vscode.Uri): Promise<string> {
+async function preprocessMarkdownImages(
+  text: string,
+  sourceUri: vscode.Uri,
+): Promise<string> {
   const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
   const sourceDir = path.dirname(sourceUri.fsPath);
   let processedText = text;
   let match;
 
-  const replacements: Array<{original: string, replacement: string}> = [];
+  const replacements: Array<{ original: string; replacement: string }> = [];
 
   while ((match = imageRegex.exec(text)) !== null) {
     const [fullMatch, altText, imagePath] = match;
 
     // Skip if already base64 or http(s) URL
-    if (imagePath.startsWith('data:') || imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    if (
+      imagePath.startsWith('data:') ||
+      imagePath.startsWith('http://') ||
+      imagePath.startsWith('https://')
+    ) {
       continue;
     }
 
@@ -133,7 +148,7 @@ async function preprocessMarkdownImages(text: string, sourceUri: vscode.Uri): Pr
       if (base64Data) {
         replacements.push({
           original: fullMatch,
-          replacement: `![${altText}](${base64Data})`
+          replacement: `![${altText}](${base64Data})`,
         });
       }
     }
@@ -141,7 +156,10 @@ async function preprocessMarkdownImages(text: string, sourceUri: vscode.Uri): Pr
 
   // Apply all replacements
   for (const replacement of replacements) {
-    processedText = processedText.replace(replacement.original, replacement.replacement);
+    processedText = processedText.replace(
+      replacement.original,
+      replacement.replacement,
+    );
   }
 
   return processedText;
@@ -463,7 +481,7 @@ export class PreviewProvider {
         previewPanel.options.retainContextWhenHidden = true;
       } else {
         previewPanel = vscode.window.createWebviewPanel(
-          'markdown-preview-enhanced',
+          'markdown-preview-enhanced-iblea',
           `Preview ${path.basename(sourceUri.fsPath)}`,
           viewOptions,
           {
@@ -490,7 +508,7 @@ export class PreviewProvider {
           (message) => {
             // console.log('@ receiveMessage: ', message, previewPanel);
             vscode.commands.executeCommand(
-              `_crossnote.${message.command}`,
+              `_crossnote-iblea.${message.command}`,
               ...message.args,
             );
           },
@@ -534,7 +552,10 @@ export class PreviewProvider {
     // Preprocess markdown to convert image paths to base64 only if the option is enabled
     let processedInputString = inputString;
     if (getMPEConfig<boolean>('previewImageToBase64')) {
-      processedInputString = await preprocessMarkdownImages(inputString, sourceUri);
+      processedInputString = await preprocessMarkdownImages(
+        inputString,
+        sourceUri,
+      );
     }
 
     const engine = this.getEngine(sourceUri);

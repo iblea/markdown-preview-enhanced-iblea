@@ -1,7 +1,7 @@
 {
-  "name": "markdown-preview-enhanced",
+  "name": "markdown-preview-enhanced-iblea",
   "displayName": "%displayName%",
-  "version": "0.8.18",
+  "version": "0.9.0",
   "description": "%description%",
   "categories": [
     "Other"
@@ -15,12 +15,9 @@
   "repository": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced",
   "license": "NCSA",
   "contributors": [
-    "shd101wyy",
-    "kachkaev",
-    "gabyx",
-    "mavaddat"
+    "iblea"
   ],
-  "publisher": "shd101wyy",
+  "publisher": "iblea",
   "main": "./out/native/extension.js",
   "browser": "./out/web/extension.js",
   "scripts": {
@@ -41,7 +38,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "markdown-preview-enhanced.openPreviewToTheSide",
+        "command": "markdown-preview-enhanced-iblea.openPreviewToTheSide",
         "title": "%markdown-preview-enhanced.openPreviewToTheSide.title%",
         "category": "Markdown",
         "icon": {
@@ -50,7 +47,7 @@
         }
       },
       {
-        "command": "markdown-preview-enhanced.openPreview",
+        "command": "markdown-preview-enhanced-iblea.openPreview",
         "title": "%markdown-preview-enhanced.openPreview.title%",
         "category": "Markdown",
         "icon": {
@@ -59,88 +56,88 @@
         }
       },
       {
-        "command": "markdown-preview-enhanced.toggleScrollSync",
+        "command": "markdown-preview-enhanced-iblea.toggleScrollSync",
         "title": "%markdown-preview-enhanced.toggleScrollSync.title%"
       },
       {
-        "command": "markdown-preview-enhanced.toggleLiveUpdate",
+        "command": "markdown-preview-enhanced-iblea.toggleLiveUpdate",
         "title": "%markdown-preview-enhanced.toggleLiveUpdate.title%"
       },
       {
-        "command": "markdown-preview-enhanced.toggleBreakOnSingleNewLine",
+        "command": "markdown-preview-enhanced-iblea.toggleBreakOnSingleNewLine",
         "title": "%markdown-preview-enhanced.toggleBreakOnSingleNewLine.title%"
       },
       {
-        "command": "markdown-preview-enhanced.openImageHelper",
+        "command": "markdown-preview-enhanced-iblea.openImageHelper",
         "title": "%markdown-preview-enhanced.openImageHelper.title%"
       },
       {
-        "command": "markdown-preview-enhanced.runAllCodeChunks",
+        "command": "markdown-preview-enhanced-iblea.runAllCodeChunks",
         "title": "%markdown-preview-enhanced.runAllCodeChunks.title%"
       },
       {
-        "command": "markdown-preview-enhanced.runCodeChunk",
+        "command": "markdown-preview-enhanced-iblea.runCodeChunk",
         "title": "%markdown-preview-enhanced.runCodeChunk.title%"
       },
       {
-        "command": "markdown-preview-enhanced.syncPreview",
+        "command": "markdown-preview-enhanced-iblea.syncPreview",
         "title": "%markdown-preview-enhanced.syncPreview.title%"
       },
       {
-        "command": "markdown-preview-enhanced.customizeCss",
+        "command": "markdown-preview-enhanced-iblea.customizeCss",
         "title": "%markdown-preview-enhanced.customizeCss.title%",
         "enablement": "!isWeb"
       },
       {
-        "command": "markdown-preview-enhanced.customizeCssInWorkspace",
+        "command": "markdown-preview-enhanced-iblea.customizeCssInWorkspace",
         "title": "%markdown-preview-enhanced.customizeCssInWorkspace.title%"
       },
       {
-        "command": "markdown-preview-enhanced.insertNewSlide",
+        "command": "markdown-preview-enhanced-iblea.insertNewSlide",
         "title": "%markdown-preview-enhanced.insertNewSlide.title%"
       },
       {
-        "command": "markdown-preview-enhanced.insertTable",
+        "command": "markdown-preview-enhanced-iblea.insertTable",
         "title": "%markdown-preview-enhanced.insertTable.title%"
       },
       {
-        "command": "markdown-preview-enhanced.insertPagebreak",
+        "command": "markdown-preview-enhanced-iblea.insertPagebreak",
         "title": "%markdown-preview-enhanced.insertPagebreak.title%"
       },
       {
-        "command": "markdown-preview-enhanced.createTOC",
+        "command": "markdown-preview-enhanced-iblea.createTOC",
         "title": "%markdown-preview-enhanced.createTOC.title%",
         "enablement": "!isWeb"
       },
       {
-        "command": "markdown-preview-enhanced.openConfigScript",
+        "command": "markdown-preview-enhanced-iblea.openConfigScript",
         "title": "%markdown-preview-enhanced.openConfigScript.title%",
         "enablement": "!isWeb"
       },
       {
-        "command": "markdown-preview-enhanced.extendParser",
+        "command": "markdown-preview-enhanced-iblea.extendParser",
         "title": "%markdown-preview-enhanced.extendParser.title%",
         "enablement": "!isWeb"
       },
       {
-        "command": "markdown-preview-enhanced.customizePreviewHtmlHead",
+        "command": "markdown-preview-enhanced-iblea.customizePreviewHtmlHead",
         "title": "%markdown-preview-enhanced.customizePreviewHtmlHead.title%",
         "enablement": "!isWeb"
       },
       {
-        "command": "markdown-preview-enhanced.openConfigScriptInWorkspace",
+        "command": "markdown-preview-enhanced-iblea.openConfigScriptInWorkspace",
         "title": "%markdown-preview-enhanced.openConfigScriptInWorkspace.title%"
       },
       {
-        "command": "markdown-preview-enhanced.extendParserInWorkspace",
+        "command": "markdown-preview-enhanced-iblea.extendParserInWorkspace",
         "title": "%markdown-preview-enhanced.extendParserInWorkspace.title%"
       },
       {
-        "command": "markdown-preview-enhanced.customizePreviewHtmlHeadInWorkspace",
+        "command": "markdown-preview-enhanced-iblea.customizePreviewHtmlHeadInWorkspace",
         "title": "%markdown-preview-enhanced.customizePreviewHtmlHeadInWorkspace.title%"
       },
       {
-        "command": "markdown-preview-enhanced.showUploadedImages",
+        "command": "markdown-preview-enhanced-iblea.showUploadedImages",
         "title": "%markdown-preview-enhanced.showUploadedImages.title%",
         "enablement": "!isWeb"
       }
@@ -149,32 +146,32 @@
       "type": "object",
       "title": "Markdown Preview Enhanced",
       "properties": {
-        "markdown-preview-enhanced.configPath": {
+        "markdown-preview-enhanced-iblea.configPath": {
           "markdownDescription": "Restart is required after changes. The global configuration directory path. Leave it empty to use `$HOME/.crossnote` for Windows or `$XDG_CONFIG_HOME/.crossnote` or `$HOME/.local/state/crossnote` as the config path.",
           "default": "",
           "type": "string"
         },
-        "markdown-preview-enhanced.usePandocParser": {
+        "markdown-preview-enhanced-iblea.usePandocParser": {
           "description": "Enable this option will render markdown by pandoc instead of markdown-it.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.breakOnSingleNewLine": {
+        "markdown-preview-enhanced-iblea.breakOnSingleNewLine": {
           "description": "In Markdown, a single newline character doesn't cause a line break in the generated HTML. In GitHub Flavored Markdown, that is not true. Enable this config option to insert line breaks in rendered HTML for single newlines in Markdown source.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.scrollSync": {
+        "markdown-preview-enhanced-iblea.scrollSync": {
           "description": "Automatic scroll sync. This is now partially supported.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.liveUpdate": {
+        "markdown-preview-enhanced-iblea.liveUpdate": {
           "description": "Re-render the preview as the contents of the source changes, without requiring the source buffer to be saved. If disabled, the preview is re-rendered only when the buffer is saved to disk.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.previewMode": {
+        "markdown-preview-enhanced-iblea.previewMode": {
           "markdownDescription": "- **Single Preview**: Only one preview will be shown for all editors.\n- **Multiple Previews**: Multiple previews will be shown. Each editor has its own preview.\n- **Previews Only**: No editor will be shown. Only previews will be shown. You can use the in-preview editor to edit the markdown.\n\nRestart is required after changes.",
           "type": "string",
           "enum": [
@@ -184,12 +181,12 @@
           ],
           "default": "Single Preview"
         },
-        "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": {
+        "markdown-preview-enhanced-iblea.automaticallyShowPreviewOfMarkdownBeingEdited": {
           "description": "Automatically show preview of markdown being edited.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.previewColorScheme": {
+        "markdown-preview-enhanced-iblea.previewColorScheme": {
           "type": "string",
           "enum": [
             "selectedPreviewTheme",
@@ -198,17 +195,17 @@
           ],
           "default": "selectedPreviewTheme",
           "markdownEnumDescriptions": [
-            "Use the `markdown-preview-enhanced.previewTheme` setting.",
+            "Use the `markdown-preview-enhanced-iblea.previewTheme` setting.",
             "Follow system color scheme. If set to true, then the theme of markdown preview will automatically switch between light and dark when your system switch between light and dark. For example, if you set the current preview theme to `github-light.css`, then when your system is dark, the preview theme will be switched to `github-dark.css` automatically. If set to false, then the theme of markdown preview will not be changed automatically.",
             "Use the same theme as the editor (light or dark). If set to true, then the theme of markdown preview will automatically switch between light and dark when you switch between vscode light and dark theme. For example, if you set the current preview theme to `github-light.css`, then when you switch to vscode dark theme, the preview theme will be switched to `github-dark.css` automatically. If set to false, then the theme of markdown preview will not be changed automatically."
           ]
         },
-        "markdown-preview-enhanced.enableTypographer": {
+        "markdown-preview-enhanced-iblea.enableTypographer": {
           "description": "Enable smartypants and other sweet transforms.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.mathRenderingOption": {
+        "markdown-preview-enhanced-iblea.mathRenderingOption": {
           "description": "Choose the Math expression rendering method here. You can also disable math rendering if you want by choosing 'None'.",
           "default": "KaTeX",
           "type": "string",
@@ -218,7 +215,7 @@
             "None"
           ]
         },
-        "markdown-preview-enhanced.mathInlineDelimiters": {
+        "markdown-preview-enhanced-iblea.mathInlineDelimiters": {
           "description": "Use customized Math expression inline delimiters.",
           "default": [
             [
@@ -232,7 +229,7 @@
           ],
           "type": "array"
         },
-        "markdown-preview-enhanced.mathBlockDelimiters": {
+        "markdown-preview-enhanced-iblea.mathBlockDelimiters": {
           "description": "Use customized Math expression block delimiters.",
           "default": [
             [
@@ -246,7 +243,7 @@
           ],
           "type": "array"
         },
-        "markdown-preview-enhanced.mathRenderingOnlineService": {
+        "markdown-preview-enhanced-iblea.mathRenderingOnlineService": {
           "description": "Choose the Math expression rendering method option for GFM markdown export (Save as Markdown).",
           "default": "https://latex.codecogs.com/gif.latex",
           "type": "string",
@@ -256,47 +253,47 @@
             "https://latex.codecogs.com/png.latex"
           ]
         },
-        "markdown-preview-enhanced.mathjaxV3ScriptSrc": {
+        "markdown-preview-enhanced-iblea.mathjaxV3ScriptSrc": {
           "description": "MathJax v3 script source. Leave it empty to use the default CDN.",
           "default": "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
           "type": "string"
         },
-        "markdown-preview-enhanced.enableWikiLinkSyntax": {
+        "markdown-preview-enhanced-iblea.enableWikiLinkSyntax": {
           "description": "Enable Wiki Link syntax support. More information can be found at https://help.github.com/articles/adding-links-to-wikis/",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enableLinkify": {
+        "markdown-preview-enhanced-iblea.enableLinkify": {
           "description": "Enable or disable conversion of URL-like text to links in the markdown preview.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.useGitHubStylePipedLink": {
+        "markdown-preview-enhanced-iblea.useGitHubStylePipedLink": {
           "description": "If checked, we use GitHub style piped wiki links, i.e. [[linkText|wikiLink]]. Otherwise, we use [[wikiLink|linkText]] as the original Wikipedia style.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enableEmojiSyntax": {
+        "markdown-preview-enhanced-iblea.enableEmojiSyntax": {
           "description": "Enable emoji & font-awesome plugin. This only works for markdown-it parser, but not pandoc parser.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enableExtendedTableSyntax": {
+        "markdown-preview-enhanced-iblea.enableExtendedTableSyntax": {
           "description": "Enable extended table syntax to support merging table cells.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enableCriticMarkupSyntax": {
+        "markdown-preview-enhanced-iblea.enableCriticMarkupSyntax": {
           "description": "Enable CriticMarkup syntax. Only works with markdown-it parser. Please check http://criticmarkup.com/users-guide.php for more information.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.wikiLinkTargetFileExtension": {
+        "markdown-preview-enhanced-iblea.wikiLinkTargetFileExtension": {
           "markdownDescription": "The file extension for the link in wikilink if the link does not have an extension.",
           "default": ".md",
           "type": "string"
         },
-        "markdown-preview-enhanced.wikiLinkTargetFileNameChangeCase": {
+        "markdown-preview-enhanced-iblea.wikiLinkTargetFileNameChangeCase": {
           "markdownDescription": "The case for the file name in wikilink. If the value is `none`, then the file name will not be changed. Otherwise, the file name will be transformed to the specified case. You can read https://www.npmjs.com/package/case-anything for more details.",
           "default": "none",
           "type": "string",
@@ -318,7 +315,7 @@
             "upperCase"
           ]
         },
-        "markdown-preview-enhanced.frontMatterRenderingOption": {
+        "markdown-preview-enhanced-iblea.frontMatterRenderingOption": {
           "description": "Front matter rendering option",
           "type": "string",
           "enum": [
@@ -328,7 +325,7 @@
           ],
           "default": "none"
         },
-        "markdown-preview-enhanced.mermaidTheme": {
+        "markdown-preview-enhanced-iblea.mermaidTheme": {
           "description": "Mermaid theme, you can choose one from [\"mermaid.css\", \"mermaid.dark.css\", \"mermaid.forest.css\"]",
           "default": "default",
           "type": "string",
@@ -338,7 +335,7 @@
             "forest"
           ]
         },
-        "markdown-preview-enhanced.codeBlockTheme": {
+        "markdown-preview-enhanced-iblea.codeBlockTheme": {
           "description": "Code block theme. If `auto.css` is chosen, then the code block theme that best matches the current preview theme will be picked.",
           "default": "auto.css",
           "type": "string",
@@ -369,7 +366,7 @@
             "xonokai.css"
           ]
         },
-        "markdown-preview-enhanced.previewTheme": {
+        "markdown-preview-enhanced-iblea.previewTheme": {
           "description": "Preview Theme",
           "default": "github-light.css",
           "type": "string",
@@ -410,7 +407,7 @@
             "Vue"
           ]
         },
-        "markdown-preview-enhanced.revealjsTheme": {
+        "markdown-preview-enhanced-iblea.revealjsTheme": {
           "description": "RevealJS Presentation Theme",
           "default": "white.css",
           "type": "string",
@@ -429,17 +426,17 @@
             "none.css"
           ]
         },
-        "markdown-preview-enhanced.protocolsWhiteList": {
+        "markdown-preview-enhanced-iblea.protocolsWhiteList": {
           "description": "Accepted protocols for links.",
           "default": "http://, https://, atom://, file://, mailto:, tel:",
           "type": "string"
         },
-        "markdown-preview-enhanced.imageFolderPath": {
+        "markdown-preview-enhanced-iblea.imageFolderPath": {
           "description": "When using Image Helper to copy images, by default images will be copied to root image folder path '/assets'",
           "default": "/assets",
           "type": "string"
         },
-        "markdown-preview-enhanced.imageUploader": {
+        "markdown-preview-enhanced-iblea.imageUploader": {
           "description": "You can choose different image uploader to upload image",
           "default": "imgur",
           "type": "string",
@@ -449,135 +446,135 @@
             "qiniu"
           ]
         },
-        "markdown-preview-enhanced.qiniuAccessKey": {
+        "markdown-preview-enhanced-iblea.qiniuAccessKey": {
           "type": "string",
           "default": "",
           "description": "Qiniu AccessKey"
         },
-        "markdown-preview-enhanced.qiniuSecretKey": {
+        "markdown-preview-enhanced-iblea.qiniuSecretKey": {
           "type": "string",
           "default": "",
           "description": "Qiniu SecretKey"
         },
-        "markdown-preview-enhanced.qiniuBucket": {
+        "markdown-preview-enhanced-iblea.qiniuBucket": {
           "type": "string",
           "default": "",
           "description": "Qiniu Bucket"
         },
-        "markdown-preview-enhanced.qiniuDomain": {
+        "markdown-preview-enhanced-iblea.qiniuDomain": {
           "type": "string",
           "default": "http://",
           "description": "Qiniu Domain"
         },
-        "markdown-preview-enhanced.printBackground": {
+        "markdown-preview-enhanced-iblea.printBackground": {
           "description": "Whether to print background for file export or not. If set to `false`, then `github-light` preview theme will be used. You can also set `print_background` in front-matter for individual files.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.chromePath": {
+        "markdown-preview-enhanced-iblea.chromePath": {
           "description": "Chrome executable path, which is used for Puppeteer export. Leaving it empty means the path will be found automatically.",
           "default": "",
           "type": "string",
           "scope": "machine"
         },
-        "markdown-preview-enhanced.imageMagickPath": {
+        "markdown-preview-enhanced-iblea.imageMagickPath": {
           "description": "ImageMagick command line path. Should be either `magick` or `convert`. Leaving it empty means the path will be found automatically.",
           "default": "",
           "type": "string",
           "scope": "machine"
         },
-        "markdown-preview-enhanced.pandocPath": {
+        "markdown-preview-enhanced-iblea.pandocPath": {
           "description": "Pandoc executable path",
           "default": "pandoc",
           "type": "string",
           "scope": "machine"
         },
-        "markdown-preview-enhanced.pandocMarkdownFlavor": {
+        "markdown-preview-enhanced-iblea.pandocMarkdownFlavor": {
           "description": "The pandoc markdown flavor you want",
           "default": "markdown-raw_tex+tex_math_single_backslash",
           "type": "string"
         },
-        "markdown-preview-enhanced.pandocArguments": {
+        "markdown-preview-enhanced-iblea.pandocArguments": {
           "description": "Args passed to pandoc command e.g. [\"--smart\", \"--filter=/bin/exe\"] Please use long argument names.",
           "default": [],
           "type": "array"
         },
-        "markdown-preview-enhanced.latexEngine": {
+        "markdown-preview-enhanced-iblea.latexEngine": {
           "description": "Default latex engine for Pandoc export and latex code chunk.",
           "default": "pdflatex",
           "type": "string"
         },
-        "markdown-preview-enhanced.enableScriptExecution": {
+        "markdown-preview-enhanced-iblea.enableScriptExecution": {
           "description": "Enables executing code chunks and importing javascript files.\n⚠️ Please use this feature with caution because it may put your security at risk! Your machine can get hacked if someone makes you open a markdown with malicious code while script execution is enabled.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enableHTML5Embed": {
+        "markdown-preview-enhanced-iblea.enableHTML5Embed": {
           "description": " Enables transform audio video link to to html5 embed audio video tags.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.HTML5EmbedUseImageSyntax": {
+        "markdown-preview-enhanced-iblea.HTML5EmbedUseImageSyntax": {
           "description": " Enables video/audio embed with ![]() syntax (default).",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": {
+        "markdown-preview-enhanced-iblea.HTML5EmbedUseLinkSyntax": {
           "description": "Enables video/audio embed with []() syntax.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": {
+        "markdown-preview-enhanced-iblea.HTML5EmbedIsAllowedHttp": {
           "description": "When true embed media with http:// schema in URLs. When false ignore and don't embed them.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.HTML5EmbedAudioAttributes": {
+        "markdown-preview-enhanced-iblea.HTML5EmbedAudioAttributes": {
           "description": "HTML attributes to pass to audio tags.",
           "default": "controls preload=\"metadata\" width=\"320\"",
           "type": "string"
         },
-        "markdown-preview-enhanced.HTML5EmbedVideoAttributes": {
+        "markdown-preview-enhanced-iblea.HTML5EmbedVideoAttributes": {
           "description": "HTML attributes to pass to video tags.",
           "default": "controls preload=\"metadata\" width=\"320\" height=\"240\"",
           "type": "string"
         },
-        "markdown-preview-enhanced.puppeteerWaitForTimeout": {
+        "markdown-preview-enhanced-iblea.puppeteerWaitForTimeout": {
           "description": "Puppeteer waits for a certain timeout in milliseconds before the document export.",
           "default": 0,
           "type": "number"
         },
-        "markdown-preview-enhanced.puppeteerArgs": {
+        "markdown-preview-enhanced-iblea.puppeteerArgs": {
           "description": "Args passed to puppeteer.launch({args: $puppeteerArgs})",
           "default": [],
           "type": "array"
         },
-        "markdown-preview-enhanced.plantumlServer": {
+        "markdown-preview-enhanced-iblea.plantumlServer": {
           "description": "Render using PlantUML server instead of binary. Leave it empty to use the builtin plantuml.jar binary (`java` is required in system path). Eg: \"http://localhost:8080/svg/\"",
           "default": "",
           "type": "string"
         },
-        "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": {
+        "markdown-preview-enhanced-iblea.hideDefaultVSCodeMarkdownPreviewButtons": {
           "description": "Hide the default VSCode markdown preview extension buttons. Restarting the editor is required to make this config take effect.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.jsdelivrCdnHost": {
+        "markdown-preview-enhanced-iblea.jsdelivrCdnHost": {
           "markdownDescription": "jsDelivr CDN host. Example values: `cdn.jsdelivr.net`, `fastly.jsdelivr.net`, `gcore.jsdelivr.net`, `testingcf.jsdelivr.net`",
           "default": "cdn.jsdelivr.net",
           "type": "string"
         },
-        "markdown-preview-enhanced.plantumlJarPath": {
+        "markdown-preview-enhanced-iblea.plantumlJarPath": {
           "description": "Absolute path to the plantuml.jar file (`java` is required in system path).",
           "default": "",
           "type": "string"
         },
-        "markdown-preview-enhanced.krokiServer": {
+        "markdown-preview-enhanced-iblea.krokiServer": {
           "description": "The URL of the Kroki server to use.  ",
           "default": "https://kroki.io",
           "type": "string"
         },
-        "markdown-preview-enhanced.markdownFileExtensions": {
+        "markdown-preview-enhanced-iblea.markdownFileExtensions": {
           "description": "Markdown file extensions. This is used to determine whether to show the preview button in the markdown file context menu.",
           "default": [
             ".md",
@@ -591,17 +588,17 @@
           ],
           "type": "array"
         },
-        "markdown-preview-enhanced.alwaysShowBacklinksInPreview": {
+        "markdown-preview-enhanced-iblea.alwaysShowBacklinksInPreview": {
           "description": "Always show backlinks in preview.",
           "default": false,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.enablePreviewZenMode": {
+        "markdown-preview-enhanced-iblea.enablePreviewZenMode": {
           "description": "Enable this option will hide unnecessary UI elements in preview unless your mouse is over it.",
           "default": true,
           "type": "boolean"
         },
-        "markdown-preview-enhanced.previewImageToBase64": {
+        "markdown-preview-enhanced-iblea.previewImageToBase64": {
           "description": "Convert images to base64 format in preview. This option helps prevent image loading issues in some environments.",
           "default": false,
           "type": "boolean"
@@ -610,7 +607,7 @@
     },
     "customEditors": [
       {
-        "viewType": "markdown-preview-enhanced",
+        "viewType": "markdown-preview-enhanced-iblea",
         "displayName": "%customEditorPreviewDisplayName%",
         "selector": [
           {
@@ -622,29 +619,29 @@
     ],
     "keybindings": [
       {
-        "command": "markdown-preview-enhanced.openPreviewToTheSide",
+        "command": "markdown-preview-enhanced-iblea.openPreviewToTheSide",
         "key": "ctrl+k v",
         "mac": "cmd+k v",
         "when": "editorLangId == markdown"
       },
       {
-        "command": "markdown-preview-enhanced.openPreview",
+        "command": "markdown-preview-enhanced-iblea.openPreview",
         "key": "ctrl+shift+v",
         "mac": "cmd+shift+v",
         "when": "editorLangId == markdown"
       },
       {
-        "command": "markdown-preview-enhanced.runAllCodeChunks",
+        "command": "markdown-preview-enhanced-iblea.runAllCodeChunks",
         "key": "ctrl+shift+enter",
         "when": "editorLangId == markdown"
       },
       {
-        "command": "markdown-preview-enhanced.runCodeChunk",
+        "command": "markdown-preview-enhanced-iblea.runCodeChunk",
         "key": "shift+enter",
         "when": "editorLangId == markdown"
       },
       {
-        "command": "markdown-preview-enhanced.syncPreview",
+        "command": "markdown-preview-enhanced-iblea.syncPreview",
         "key": "ctrl+shift+s",
         "when": "editorLangId == markdown"
       }
@@ -652,14 +649,14 @@
     "menus": {
       "editor/context": [
         {
-          "command": "markdown-preview-enhanced.openPreviewToTheSide",
+          "command": "markdown-preview-enhanced-iblea.openPreviewToTheSide",
           "when": "editorLangId == markdown",
           "group": "markdown-preview-enhanced"
         }
       ],
       "editor/title": [
         {
-          "command": "markdown-preview-enhanced.openPreviewToTheSide",
+          "command": "markdown-preview-enhanced-iblea.openPreviewToTheSide",
           "when": "editorLangId == markdown",
           "group": "navigation"
         }

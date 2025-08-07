@@ -21,7 +21,7 @@ let editorScrollDelay = Date.now();
 
 // hide default vscode markdown preview buttons if necessary
 const hideDefaultVSCodeMarkdownPreviewButtons = vscode.workspace
-  .getConfiguration('markdown-preview-enhanced')
+  .getConfiguration('markdown-preview-enhanced-iblea')
   .get<boolean>('hideDefaultVSCodeMarkdownPreviewButtons');
 if (hideDefaultVSCodeMarkdownPreviewButtons) {
   vscode.commands.executeCommand(
@@ -426,7 +426,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
     }
     const styleLessFile = vscode.Uri.joinPath(
       currentWorkingDirectory,
-      './.crossnote/style.less',
+      './.crossnote-iblea/style.less',
     );
 
     openConfigFileInWorkspace(currentWorkingDirectory, styleLessFile);
@@ -442,7 +442,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
 
     const configScriptPath = vscode.Uri.joinPath(
       currentWorkingDirectory,
-      './.crossnote/config.js',
+      './.crossnote-iblea/config.js',
     );
 
     openConfigFileInWorkspace(currentWorkingDirectory, configScriptPath);
@@ -458,7 +458,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
 
     const parserConfigPath = vscode.Uri.joinPath(
       currentWorkingDirectory,
-      './.crossnote/parser.js',
+      './.crossnote-iblea/parser.js',
     );
 
     openConfigFileInWorkspace(currentWorkingDirectory, parserConfigPath);
@@ -474,7 +474,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
 
     const headHtmlPath = vscode.Uri.joinPath(
       currentWorkingDirectory,
-      './.crossnote/head.html',
+      './.crossnote-iblea/head.html',
     );
 
     openConfigFileInWorkspace(currentWorkingDirectory, headHtmlPath);
@@ -729,7 +729,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
         const previewProvider = await getPreviewContentProvider(document.uri);
         previewProvider.updateMarkdown(document.uri, true);
       } else {
-        // Check if there is change under `${workspaceDir}/.crossnote` directory
+        // Check if there is change under `${workspaceDir}/.crossnote-iblea` directory
         // and the filename is in one of below
         // - style.less
         // - config.js
@@ -740,7 +740,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
         const workspaceDir = workspaceUri.fsPath;
         const relativePath = path.relative(workspaceDir, document.uri.fsPath);
         if (
-          relativePath.startsWith('.crossnote') &&
+          relativePath.startsWith('.crossnote-iblea') &&
           ['style.less', 'config.js', 'parser.js', 'head.html'].includes(
             path.basename(relativePath),
           )
@@ -756,7 +756,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.workspace.onDidDeleteFiles(async ({ files }) => {
       for (const file of files) {
-        // Check if there is change under `${workspaceDir}/.crossnote` directory
+        // Check if there is change under `${workspaceDir}/.crossnote-iblea` directory
         // and filename is in one of below
         // - style.less
         // - config.js
@@ -767,7 +767,7 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
         const workspaceDir = workspaceUri.fsPath;
         const relativePath = path.relative(workspaceDir, file.fsPath);
         if (
-          relativePath.startsWith('.crossnote') &&
+          relativePath.startsWith('.crossnote-iblea') &&
           ['style.less', 'config.js', 'parser.js', 'head.html'].includes(
             path.basename(relativePath),
           )
@@ -795,9 +795,9 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
     vscode.workspace.onDidChangeConfiguration((event) => {
       // console.log(
       //   'onDidChangeConfiguration: ',
-      //   event.affectsConfiguration('markdown-preview-enhanced'),
+      //   event.affectsConfiguration('markdown-preview-enhanced-iblea'),
       // );
-      if (event.affectsConfiguration('markdown-preview-enhanced')) {
+      if (event.affectsConfiguration('markdown-preview-enhanced-iblea')) {
         notebooksManager.updateAllNotebooksConfig();
       }
     }),
@@ -955,304 +955,331 @@ export async function initExtensionCommon(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.openPreviewToTheSide',
+      'markdown-preview-enhanced-iblea.openPreviewToTheSide',
       openPreviewToTheSide,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.openPreview',
+      'markdown-preview-enhanced-iblea.openPreview',
       openPreview,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.toggleScrollSync',
+      'markdown-preview-enhanced-iblea.toggleScrollSync',
       toggleScrollSync,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.toggleLiveUpdate',
+      'markdown-preview-enhanced-iblea.toggleLiveUpdate',
       toggleLiveUpdate,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.toggleBreakOnSingleNewLine',
+      'markdown-preview-enhanced-iblea.toggleBreakOnSingleNewLine',
       toggleBreakOnSingleNewLine,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.openImageHelper',
+      'markdown-preview-enhanced-iblea.openImageHelper',
       openImageHelper,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.runAllCodeChunks',
+      'markdown-preview-enhanced-iblea.runAllCodeChunks',
       runAllCodeChunksCommand,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.runCodeChunk',
+      'markdown-preview-enhanced-iblea.runCodeChunk',
       runCodeChunkCommand,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.syncPreview',
+      'markdown-preview-enhanced-iblea.syncPreview',
       syncPreview,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.insertNewSlide',
+      'markdown-preview-enhanced-iblea.insertNewSlide',
       insertNewSlide,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.insertTable',
+      'markdown-preview-enhanced-iblea.insertTable',
       insertTable,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.insertPagebreak',
+      'markdown-preview-enhanced-iblea.insertPagebreak',
       insertPagebreak,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.createTOC',
+      'markdown-preview-enhanced-iblea.createTOC',
       createTOC,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.revealLine', revealLine),
+    vscode.commands.registerCommand('_crossnote-iblea.revealLine', revealLine),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.insertImageUrl',
+      '_crossnote-iblea.insertImageUrl',
       insertImageUrl,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.pasteImageFile',
+      '_crossnote-iblea.pasteImageFile',
       pasteImageFile,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.uploadImageFile',
+      '_crossnote-iblea.uploadImageFile',
       uploadImageFile,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.refreshPreview',
+      '_crossnote-iblea.refreshPreview',
       refreshPreview,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.openInBrowser', openInBrowser),
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.openInBrowser',
+      openInBrowser,
+    ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.htmlExport', htmlExport),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.chromeExport', chromeExport),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.princeExport', princeExport),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.eBookExport', eBookExport),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.pandocExport', pandocExport),
+    vscode.commands.registerCommand('_crossnote-iblea.htmlExport', htmlExport),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.markdownExport',
+      '_crossnote-iblea.chromeExport',
+      chromeExport,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.princeExport',
+      princeExport,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.eBookExport',
+      eBookExport,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.pandocExport',
+      pandocExport,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.markdownExport',
       markdownExport,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.webviewFinishLoading',
+      '_crossnote-iblea.webviewFinishLoading',
       webviewFinishLoading,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.cacheCodeChunkResult',
+      '_crossnote-iblea.cacheCodeChunkResult',
       cacheCodeChunkResult,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.runCodeChunk', runCodeChunk),
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.runCodeChunk',
+      runCodeChunk,
+    ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.runAllCodeChunks',
+      '_crossnote-iblea.runAllCodeChunks',
       runAllCodeChunks,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.clickTaskListCheckbox',
+      '_crossnote-iblea.clickTaskListCheckbox',
       clickTaskListCheckbox,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.setPreviewTheme',
+      '_crossnote-iblea.setPreviewTheme',
       setPreviewTheme,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.togglePreviewZenMode',
+      '_crossnote-iblea.togglePreviewZenMode',
       togglePreviewZenMode,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.setCodeBlockTheme',
+      '_crossnote-iblea.setCodeBlockTheme',
       setCodeBlockTheme,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.setRevealjsTheme',
+      '_crossnote-iblea.setRevealjsTheme',
       setRevealjsTheme,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.setImageUploader',
+      '_crossnote-iblea.setImageUploader',
       setImageUploader,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.openChangelog', openChangelog),
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.openChangelog',
+      openChangelog,
+    ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.openDocumentation',
+      '_crossnote-iblea.openDocumentation',
       openDocumentation,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.openIssues', openIssues),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.openSponsors', openSponsors),
+    vscode.commands.registerCommand('_crossnote-iblea.openIssues', openIssues),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.openExternalEditor',
+      '_crossnote-iblea.openSponsors',
+      openSponsors,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.openExternalEditor',
       openExternalEditor,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.customizeCssInWorkspace',
+      'markdown-preview-enhanced-iblea.customizeCssInWorkspace',
       customizeCSSInWorkspace,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.openConfigScriptInWorkspace',
+      'markdown-preview-enhanced-iblea.openConfigScriptInWorkspace',
       openConfigScriptInWorkspace,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.extendParserInWorkspace',
+      'markdown-preview-enhanced-iblea.extendParserInWorkspace',
       extendParserInWorkspace,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'markdown-preview-enhanced.customizePreviewHtmlHeadInWorkspace',
+      'markdown-preview-enhanced-iblea.customizePreviewHtmlHeadInWorkspace',
       customizePreviewHtmlHeadInWorkspace,
     ),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.clickTagA', clickTagA),
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand('_crossnote.showBacklinks', showBacklinks),
+    vscode.commands.registerCommand('_crossnote-iblea.clickTagA', clickTagA),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.updateMarkdown',
+      '_crossnote-iblea.showBacklinks',
+      showBacklinks,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      '_crossnote-iblea.updateMarkdown',
       updateMarkdown,
     ),
   );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      '_crossnote.toggleAlwaysShowBacklinksInPreview',
+      '_crossnote-iblea.toggleAlwaysShowBacklinksInPreview',
       toggleAlwaysShowBacklinksInPreview,
     ),
   );
 
   context.subscriptions.push(
     vscode.window.registerCustomEditorProvider(
-      'markdown-preview-enhanced',
+      'markdown-preview-enhanced-iblea',
       new PreviewCustomEditorProvider(context),
     ),
   );

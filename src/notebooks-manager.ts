@@ -86,7 +86,7 @@ class NotebooksManager {
     let workspaceConfig: Partial<NotebookConfig> = {};
     const workspaceConfigPath = vscode.Uri.joinPath(
       getWorkspaceFolderUri(uri),
-      './.crossnote',
+      './.crossnote-iblea',
     );
     if (
       (await notebook.fs.exists(workspaceConfigPath.fsPath)) ||
@@ -148,14 +148,16 @@ class NotebooksManager {
     if (previewMode === PreviewMode.PreviewsOnly) {
       const associations: { [key: string]: string } = {};
       markdownFileExtensions.forEach((ext) => {
-        associations[`*${ext}`] = 'markdown-preview-enhanced';
+        associations[`*${ext}`] = 'markdown-preview-enhanced-iblea';
       });
       // Add associations to editorAssociations
       newEditorAssociations = { ...editorAssociations, ...associations };
     } else {
-      // delete associations from editorAssociations if exists and value is 'markdown-preview-enhanced'
+      // delete associations from editorAssociations if exists and value is 'markdown-preview-enhanced-iblea'
       markdownFileExtensions.forEach((ext) => {
-        if (editorAssociations[`*${ext}`] === 'markdown-preview-enhanced') {
+        if (
+          editorAssociations[`*${ext}`] === 'markdown-preview-enhanced-iblea'
+        ) {
           delete newEditorAssociations[`*${ext}`];
         }
       });

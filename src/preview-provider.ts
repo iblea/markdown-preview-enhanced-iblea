@@ -36,6 +36,117 @@ if (isVSCodeWebExtension()) {
   );
 }
 
+/**
+ * Check if a file path is an image file
+ */
+function isImageFile(filePath: string): boolean {
+  const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.svg'];
+  const ext = path.extname(filePath).toLowerCase();
+  return imageExtensions.includes(ext);
+}
+
+/**
+ * Convert image file to base64 data URL
+ */
+async function convertImageToBase64(filePath: string): Promise<string | null> {
+  try {
+    const uri = vscode.Uri.file(filePath);
+
+    // Check if file exists
+    try {
+      await vscode.workspace.fs.stat(uri);
+    } catch (error) {
+      return null;
+    }
+
+    const buffer = await vscode.workspace.fs.readFile(uri);
+    const ext = path.extname(filePath).toLowerCase();
+
+    let mimeType: string;
+    switch (ext) {
+      case '.png':
+        mimeType = 'image/png';
+        break;
+      case '.jpg':
+      case '.jpeg':
+        mimeType = 'image/jpeg';
+        break;
+      case '.gif':
+        mimeType = 'image/gif';
+        break;
+      case '.bmp':
+        mimeType = 'image/bmp';
+        break;
+      case '.webp':
+        mimeType = 'image/webp';
+        break;
+      case '.svg':
+        mimeType = 'image/svg+xml';
+        break;
+      default:
+        return null;
+    }
+
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    for (let i = 0; i < bytes.byteLength; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    const base64 = btoa(binary);
+    return `data:${mimeType};base64,${base64}`;
+  } catch (error) {
+    console.error('Error converting image to base64:', error);
+    return null;
+  }
+}
+
+/**
+ * Preprocess markdown text to convert image references to base64
+ */
+async function preprocessMarkdownImages(text: string, sourceUri: vscode.Uri): Promise<string> {
+  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  const sourceDir = path.dirname(sourceUri.fsPath);
+  let processedText = text;
+  let match;
+
+  const replacements: Array<{original: string, replacement: string}> = [];
+
+  while ((match = imageRegex.exec(text)) !== null) {
+    const [fullMatch, altText, imagePath] = match;
+
+    // Skip if already base64 or http(s) URL
+    if (imagePath.startsWith('data:') || imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+      continue;
+    }
+
+    // Resolve relative path
+    let resolvedPath: string;
+    if (path.isAbsolute(imagePath)) {
+      resolvedPath = imagePath;
+    } else {
+      resolvedPath = path.resolve(sourceDir, imagePath);
+    }
+
+    // Check if it's an image file
+    if (isImageFile(resolvedPath)) {
+      const base64Data = await convertImageToBase64(resolvedPath);
+      if (base64Data) {
+        replacements.push({
+          original: fullMatch,
+          replacement: `![${altText}](${base64Data})`
+        });
+      }
+    }
+  }
+
+  // Apply all replacements
+  for (const replacement of replacements) {
+    processedText = processedText.replace(replacement.original, replacement.replacement);
+  }
+
+  return processedText;
+}
+
 utility.useExternalAddFileProtocolFunction((filePath, preview) => {
   if (preview) {
     if (filePath.startsWith('/http:/localhost:6789/')) {
@@ -419,10 +530,17 @@ export class PreviewProvider {
     }
 
     const inputString = document.getText() ?? '';
+
+    // Preprocess markdown to convert image paths to base64 only if the option is enabled
+    let processedInputString = inputString;
+    if (getMPEConfig<boolean>('previewImageToBase64')) {
+      processedInputString = await preprocessMarkdownImages(inputString, sourceUri);
+    }
+
     const engine = this.getEngine(sourceUri);
     try {
       const html = await engine.generateHTMLTemplateForPreview({
-        inputString,
+        inputString: processedInputString,
         config: {
           sourceUri: sourceUri.toString(),
           cursorLine: initialLine,
@@ -530,12 +648,19 @@ export class PreviewProvider {
       for (let i = 0; i < previews.length; i++) {
         try {
           const preview = previews[0];
+
+          // Preprocess markdown to convert image paths to base64 only if the option is enabled
+          let processedText = text;
+          if (getMPEConfig<boolean>('previewImageToBase64')) {
+            processedText = await preprocessMarkdownImages(text, sourceUri);
+          }
+
           const {
             html,
             tocHTML,
             JSAndCssFiles,
             yamlConfig,
-          } = await engine.parseMD(text, {
+          } = await engine.parseMD(processedText, {
             isForPreview: true,
             useRelativeFilePath: false,
             hideFrontMatter: false,

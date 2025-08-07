@@ -600,6 +600,11 @@
           "description": "Enable this option will hide unnecessary UI elements in preview unless your mouse is over it.",
           "default": true,
           "type": "boolean"
+        },
+        "markdown-preview-enhanced.previewImageToBase64": {
+          "description": "Convert images to base64 format in preview. This option helps prevent image loading issues in some environments.",
+          "default": false,
+          "type": "boolean"
         }
       }
     },

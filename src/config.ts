@@ -31,6 +31,7 @@ type VSCodeMPEConfigKey =
   | 'hideDefaultVSCodeMarkdownPreviewButtons'
   | 'liveUpdate'
   | 'previewColorScheme'
+  | 'previewImageToBase64'
   | 'previewMode'
   | 'qiniuAccessKey'
   | 'qiniuBucket'

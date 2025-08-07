@@ -7,3 +7,5 @@ mume
 crossnote
 .vscode-test-web
 yarn-error.log
+
+package-lock.json
